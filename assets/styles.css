@@ -157,3 +157,113 @@ h1{font-size:clamp(62px,8.5vw,132px);letter-spacing:-.055em;max-width:950px}
   .location-grid{grid-template-columns:1fr}
   .location-card{min-height:auto}
 }
+
+
+/* 2026 visual refresh — contemporary Milan + Borstei art context */
+:root{
+  --paper:#f7f7f3;
+  --paper2:#eceee8;
+  --ink:#1d1f1c;
+  --wine:#8b3e34;
+  --green:#53685a;
+  --gold:#b89661;
+  --line:rgba(29,31,28,.12);
+  --serif:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --sans:"Avenir Next","Helvetica Neue",Inter,Arial,sans-serif;
+  --max:1280px
+}
+body{background:var(--paper);font-family:var(--sans);letter-spacing:-.01em}
+.site-header{background:rgba(247,247,243,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(29,31,28,.08)}
+.nav{min-height:78px}
+.brand-text{font-family:var(--sans);font-weight:600;font-size:18px;letter-spacing:-.02em}
+.brand-mark{font-family:var(--serif);border-color:rgba(29,31,28,.35)}
+.nav-links{font-size:13px;font-weight:500;gap:20px}
+.nav-links a:hover{text-decoration:none;opacity:.62}
+.nav-links a.is-active{text-decoration:none;font-weight:650}
+.nav-links a.is-active:not(.nav-cta)::after{content:"";display:block;height:2px;background:var(--ink);margin-top:5px;border-radius:2px}
+.nav-cta,.btn{border-radius:999px;border:1px solid rgba(29,31,28,.18);padding:11px 18px;transition:all .2s ease}
+.nav-cta{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.primary{background:var(--ink);color:#fff}
+.btn:hover,.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(29,31,28,.08);text-decoration:none}
+
+h1,h2,h3{font-family:var(--sans);font-weight:500;letter-spacing:-.055em}
+h1{line-height:.94}
+.section h2{line-height:.98}
+.kicker,.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--wine)}
+.hero{min-height:72vh;background:linear-gradient(135deg,#f7f7f3 0%,#f1f1ec 100%)}
+.hero:before{background:none}
+.hero-grid{padding:96px 0 78px}
+.hero-copy,.section-intro{line-height:1.45;color:#40433e}
+.hero-card{border-top:0;background:#fff;border-radius:28px;padding:26px;box-shadow:0 18px 50px rgba(29,31,28,.07)}
+.fact b{color:#777a74;font-weight:600}
+.page-hero{position:relative;overflow:hidden;padding:112px 0 86px;background:linear-gradient(135deg,#f7f7f3 0%,#f0f1eb 100%);border-bottom:0}
+.page-hero:after{content:"";position:absolute;right:-50px;top:20px;width:min(38vw,480px);height:min(48vw,600px);background:url('/assets/sculpture-study.svg') center/contain no-repeat;opacity:.055;pointer-events:none}
+.page-hero .wrap{position:relative;z-index:1}
+.page-hero h1{max-width:980px;line-height:.93}
+.section{padding:112px 0;border-bottom:0}
+.section.alt{background:var(--paper2)}
+.grid-3{gap:18px;background:transparent;border:0}
+.card{border:0;background:#fff;border-radius:24px;padding:30px;box-shadow:0 10px 30px rgba(29,31,28,.045)}
+.card h3{font-family:var(--sans);font-size:26px;letter-spacing:-.035em}
+.split{gap:72px}
+.photo{border-radius:28px;border:0;box-shadow:none;background:#e7e8e2}
+.photo img{filter:saturate(.91) contrast(.92) brightness(1.045);transition:transform .45s ease,filter .45s ease}
+.photo:hover img{transform:scale(1.018)}
+.caption{margin-top:12px;color:#777a74}
+.menu-list{border-top:0;display:grid;gap:8px}
+.menu-row{border-bottom:1px solid var(--line);padding:20px 0}
+.menu-row h3{letter-spacing:-.02em}
+.event{gap:78px}
+.poster{border-radius:24px;box-shadow:0 24px 70px rgba(29,31,28,.14)}
+.event-dates{gap:10px}
+.date-chip{border:1px solid rgba(29,31,28,.1);background:rgba(255,255,255,.65);border-radius:999px;padding:11px 14px}
+.location-grid{gap:14px;background:transparent;border:0;overflow:visible}
+.location-card{background:#fff;border-radius:22px;min-height:178px;box-shadow:0 10px 30px rgba(29,31,28,.035)}
+.location-card .location-name{font-family:var(--sans);font-weight:500;letter-spacing:-.04em;font-size:27px}
+.location-line,.story-quote,.contact-big{font-family:var(--sans);font-weight:500;letter-spacing:-.05em}
+.host-image{border:0;border-radius:28px;background:#e6e7e1}
+.host-image img{filter:saturate(.9) contrast(.94) brightness(1.04)}
+.host-meta{border-top:0;margin-top:0;padding:14px 4px 0}
+.host-name{font-family:var(--sans);font-weight:600;letter-spacing:-.035em}
+.page-nav-rail a{border:0;background:rgba(255,255,255,.88);box-shadow:0 10px 30px rgba(29,31,28,.09)}
+.footer{border-top:1px solid rgba(29,31,28,.08);padding-top:56px}
+
+/* sculpture as a subtle cultural layer rather than retro decoration */
+.section.sculptural{position:relative;overflow:hidden}
+.section.sculptural:after{content:"";position:absolute;right:-90px;bottom:-120px;width:440px;height:560px;background:url('/assets/sculpture-study.svg') center/contain no-repeat;opacity:.035;pointer-events:none}
+
+/* Modern image-led feature blocks */
+.media-feature{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+.media-feature.reverse{grid-template-columns:.92fr 1.08fr}
+.media-feature .media-copy{max-width:560px}
+.media-frame{aspect-ratio:16/10;border-radius:30px;overflow:hidden;background:#e4e5df}
+.media-frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(.93) brightness(1.04)}
+.media-frame.tall{aspect-ratio:4/5}
+.media-frame.poster-frame{aspect-ratio:4/5;background:#dedfd8;padding:20px}
+.media-frame.poster-frame img{object-fit:contain;border-radius:16px;filter:none}
+.live-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:76px;align-items:center}
+.live-hero-grid .page-hero-copy{max-width:680px}
+.live-hero-grid .poster-shell{justify-self:end;max-width:420px;width:100%;padding:18px;background:#fff;border-radius:30px;box-shadow:0 20px 70px rgba(29,31,28,.1)}
+.live-hero-grid .poster-shell img{width:100%;border-radius:18px}
+.modern-dates{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.modern-date{background:#fff;border-radius:18px;padding:18px;min-height:110px}
+.modern-date span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);margin-bottom:18px}
+.modern-date b{font-size:17px;font-weight:600}
+.art-context{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}
+.art-mark{min-height:360px;background:url('/assets/sculpture-study.svg') center/contain no-repeat;opacity:.18}
+
+@media (max-width:1080px){
+  .media-feature,.media-feature.reverse,.live-hero-grid,.art-context{grid-template-columns:1fr;gap:36px}
+  .modern-dates{grid-template-columns:repeat(2,1fr)}
+  .live-hero-grid .poster-shell{justify-self:start;max-width:360px}
+}
+@media (max-width:860px){
+  .page-hero{padding:76px 0 58px}
+  .page-hero:after{width:300px;height:380px;right:-100px}
+  .section{padding:76px 0}
+  .card,.hero-card{border-radius:20px}
+  .media-frame{border-radius:22px}
+}
+@media (max-width:560px){
+  .modern-dates{grid-template-columns:1fr}
+}
