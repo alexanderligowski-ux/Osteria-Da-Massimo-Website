@@ -45,3 +45,39 @@ h1{font-size:clamp(62px,8.5vw,132px);letter-spacing:-.055em;max-width:950px}
  body{padding-bottom:52px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+
+
+/* Laptop navigation and spacing: 1280–1440px */
+@media (min-width:1081px) and (max-width:1440px){
+  :root{--max:1160px}
+  .nav{min-height:68px;gap:18px}
+  .brand{flex:0 0 auto}
+  .brand-text{font-size:18px}
+  .nav-links{margin-left:auto;gap:14px;font-size:13px;white-space:nowrap}
+  .nav-links .nav-cta{padding:8px 12px}
+  .hero-grid{grid-template-columns:minmax(0,1.18fr) minmax(290px,.82fr);gap:42px;padding:66px 0 58px}
+  h1{font-size:clamp(58px,7.4vw,104px)}
+  .hero-copy{font-size:20px;max-width:610px}
+  .section{padding:78px 0}
+  .section h2{font-size:clamp(42px,4.7vw,66px)}
+  .grid-3{margin-top:38px}
+}
+
+/* Keep the header calm on 13-inch laptops */
+@media (min-width:1081px) and (max-width:1220px){
+  .nav-links>a:nth-child(5){display:none}
+  .nav-links{gap:12px}
+  .brand-text{font-size:17px}
+}
+
+/* Tablet / compact laptop: use the menu instead of squeezing links */
+@media (min-width:861px) and (max-width:1080px){
+  .nav{min-height:68px}
+  .menu-toggle{display:block;margin-left:auto}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--paper);padding:22px min(32px,4vw) 28px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:16px;font-size:15px}
+  .nav-links.open{display:flex}
+  .nav-links .nav-cta{width:100%;justify-content:center;margin-top:4px}
+  .hero-grid{grid-template-columns:1fr .72fr;gap:34px;padding:58px 0 52px}
+  h1{font-size:clamp(54px,8vw,80px)}
+  .section{padding:72px 0}
+}
