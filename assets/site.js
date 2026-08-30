@@ -49,3 +49,70 @@ if(b&&n){b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.se
     '<a href="'+next.href+'" aria-label="'+(isIt?'Pagina successiva: ':'Nächste Seite: ')+next.label+'" title="'+(isIt?'Successiva: ':'Weiter: ')+next.label+'">↓</a>';
   document.body.appendChild(rail);
 })();
+
+/* Google Reviews placeholder component
+   TODO: Google Review Widget / Trustindex integrieren
+   TODO: Rating und Anzahl durch echte Daten ersetzen
+   TODO: Platzhalter-Rezensionen durch echte Rezensionen ersetzen
+*/
+(()=>{
+  const slider=document.querySelector('[data-reviews-slider]');
+  if(!slider) return;
+
+  // Placeholder data; replace this array with normalized Trustindex / Elfsight / Google Places data later.
+  const reviews=[
+    {
+      quote:'Ein Abend wie in Italien. Herzlich, unkompliziert und mit richtig gutem Essen.',
+      author:'Name des Gastes'
+    },
+    {
+      quote:'Seit Jahren eine unserer Lieblingsadressen in München.',
+      author:'Name des Gastes'
+    },
+    {
+      quote:'Wunderbare Atmosphäre, sehr gutes Essen und Gastgeber mit Herz.',
+      author:'Name des Gastes'
+    }
+  ];
+
+  const quote=slider.querySelector('[data-review-quote]');
+  const author=slider.querySelector('[data-review-author]');
+  const counter=slider.querySelector('[data-review-index]');
+  const prev=slider.querySelector('[data-review-prev]');
+  const next=slider.querySelector('[data-review-next]');
+  const stage=slider.querySelector('.review-stage');
+  let index=0;
+  let startX=null;
+  let animating=false;
+
+  const render=(nextIndex)=>{
+    if(animating) return;
+    animating=true;
+    stage.classList.add('is-leaving');
+
+    window.setTimeout(()=>{
+      index=(nextIndex+reviews.length)%reviews.length;
+      quote.textContent='„'+reviews[index].quote+'“';
+      author.textContent=reviews[index].author;
+      counter.textContent=String(index+1).padStart(2,'0')+' / '+String(reviews.length).padStart(2,'0');
+      stage.classList.remove('is-leaving');
+      window.setTimeout(()=>{animating=false},260);
+    },180);
+  };
+
+  prev.addEventListener('click',()=>render(index-1));
+  next.addEventListener('click',()=>render(index+1));
+
+  slider.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='mouse') return;
+    startX=e.clientX;
+  });
+  slider.addEventListener('pointerup',e=>{
+    if(startX===null) return;
+    const dx=e.clientX-startX;
+    startX=null;
+    if(Math.abs(dx)<45) return;
+    render(dx<0?index+1:index-1);
+  });
+  slider.addEventListener('pointercancel',()=>{startX=null});
+})();
