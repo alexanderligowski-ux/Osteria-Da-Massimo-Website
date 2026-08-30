@@ -267,3 +267,8 @@ h1{line-height:.94}
 @media (max-width:560px){
   .modern-dates{grid-template-columns:1fr}
 }
+
+.hero:after{content:"";position:absolute;right:-80px;top:88px;width:min(34vw,430px);height:min(46vw,560px);background:url('/assets/sculpture-study.svg') center/contain no-repeat;opacity:.035;pointer-events:none}
+.hero-grid{z-index:1}
+@media(max-width:1080px){.hero:after{opacity:.025;right:-150px}}
+@media(max-width:860px){.hero:after{display:none}}
